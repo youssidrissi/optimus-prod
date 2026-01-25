@@ -24,3 +24,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* ---- Optimus gradient utilities ---- */
+.gradient-text {
+  background: linear-gradient(90deg, #3b82f6 0%, #a855f7 55%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: rgba(10, 14, 26, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+.soft-shadow {
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45),
+    0 1px 0 rgba(255,255,255,0.05) inset;
+}
