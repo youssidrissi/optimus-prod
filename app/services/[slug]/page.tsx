@@ -186,22 +186,22 @@ export default function ServiceDetailPage() {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 opacity-30"></div>
 
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium mb-6">
-            {service.category}
-          </span>
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-gray-900">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-block mb-6 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+            <span className="text-blue-600 dark:text-blue-400 text-sm font-semibold">{service.category}</span>
+          </div>
           <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             {service.title}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
             {service.description}
           </p>
         </div>
       </section>
 
       {/* Key Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900/50">
+      <section className="relative py-20 bg-white dark:bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             Key Features
@@ -223,7 +223,7 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-50 dark:bg-gray-900/50">
+      <section className="relative py-20 bg-blue-50 dark:bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             Why Choose Us
