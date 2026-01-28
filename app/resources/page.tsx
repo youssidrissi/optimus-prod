@@ -5,56 +5,52 @@ import Link from 'next/link';
 
 export default function ResourcesPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 opacity-30"></div>
+    <div className="min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-gray-900">
+      <section className="relative pt-20 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-block mb-6 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            <span className="text-blue-600 dark:text-blue-400 text-sm font-semibold">Knowledge Base</span>
+          <div className="inline-block mb-6 px-4 py-2 bg-blue-500/20 rounded-full">
+            <span className="text-blue-300 text-sm font-semibold">Learning Hub</span>
           </div>
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Resources
+          <h1 className="text-5xl sm:text-6xl font-bold mb-6 gradient-text">
+            Resources & Insights
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Insights, articles, and thought leadership
+          <p className="text-base text-white/70">
+            Practical guides, articles, and thought leadership on building great digital products.
           </p>
         </div>
       </section>
 
       {/* Content Section */}
-      <section className="relative py-20 bg-white dark:bg-gray-900/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg dark:prose-invert mx-auto">
-            <p className="mb-6 text-gray-700 dark:text-gray-300">
-              Stay updated with the latest trends in technology, AI, and digital transformation through our comprehensive resource library.
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-white/75 text-base leading-relaxed space-y-6">
+            <p>
+              Building great products isn't just about technology. It's about strategy, execution, and constantly learning what works. We share what we've learned from 200+ projects.
             </p>
-            <p className="mb-6 text-gray-700 dark:text-gray-300">
-              Our team regularly publishes articles, whitepapers, and guides to help businesses navigate the digital landscape and make informed technology decisions.
+            <p>
+              From scaling advice to design patterns to technology decisions, our team publishes regularly on the topics that matter to product teams and founders.
             </p>
-            <p className="mb-6 text-gray-700 dark:text-gray-300">
-              Subscribe to our newsletter to receive the latest insights and updates directly in your inbox.
+            <p>
+              Subscribe to get the latest articles and insights sent directly to your inbox.
             </p>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700">
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Let&apos;s Work Together
-          </h2>
-          <p className="text-lg text-white/90 mb-10">
-            Schedule a consultation to discuss your project
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-extrabold text-white mb-4">Ready to Get Started?</h2>
+          <p className="text-white/85 mb-8 max-w-2xl mx-auto">
+            Let&apos;s discuss your project and create something extraordinary together
           </p>
           <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 rounded-lg bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-all"
+            href="/book"
+            className="inline-flex items-center gap-2 rounded-xl grad px-6 py-3 font-semibold text-white shadow-lg shadow-purple-500/10 hover:shadow-purple-500/20 transition"
           >
-            Book a Consultation
-            <ArrowRight className="ml-2 w-5 h-5" />
+            Book a Consultation <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

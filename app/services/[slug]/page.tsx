@@ -161,17 +161,17 @@ export default function ServiceDetailPage() {
 
   if (!service) {
     return (
-      <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-[#050812] flex items-center justify-center">
         <div className="text-center px-4">
-          <h1 className="text-3xl font-bold text-black dark:text-white mb-4">
+          <h1 className="text-3xl font-bold text-white mb-4">
             Service Not Found
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8">
+          <p className="text-white/70 mb-8">
             The service you&apos;re looking for doesn&apos;t exist.
           </p>
           <Link
             href="/services"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-lg grad text-white font-semibold hover:shadow-purple-500/20 transition-all"
           >
             <ArrowLeft className="mr-2 w-5 h-5" />
             Back to Services
@@ -182,40 +182,38 @@ export default function ServiceDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 opacity-30"></div>
-
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-gray-900">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-block mb-6 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            <span className="text-blue-600 dark:text-blue-400 text-sm font-semibold">{service.category}</span>
+          <div className="inline-block mb-6 px-4 py-2 bg-blue-500/20 rounded-full">
+            <span className="text-blue-300 text-sm font-semibold">{service.category}</span>
           </div>
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-6xl font-bold mb-6 gradient-text">
             {service.title}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+          <p className="text-xl text-white/70 mb-8">
             {service.description}
           </p>
         </div>
       </section>
 
       {/* Key Features Section */}
-      <section className="relative py-20 bg-white dark:bg-gray-900/50">
+      <section className="relative py-20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Key Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {service.keyFeatures.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 flex flex-col items-center text-center hover:shadow-md transition-shadow"
+                className="rounded-xl bg-white/[0.05] border border-white/10 p-5 flex flex-col items-center text-center hover:border-blue-400/30 transition"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-3">
+                  <CheckCircle className="w-5 h-5 text-blue-400" />
                 </div>
-                <p className="text-gray-700 dark:text-gray-300">{feature}</p>
+                <p className="text-white/85 text-sm">{feature}</p>
               </div>
             ))}
           </div>
@@ -223,21 +221,21 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="relative py-20 bg-blue-50 dark:bg-gray-900/50">
+      <section className="relative py-20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Why Choose Us
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {service.whyChooseUs.map((reason, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-4 bg-white dark:bg-gray-800 rounded-lg p-6"
+                className="flex items-start gap-3 rounded-xl bg-white/[0.05] border border-white/10 p-5 hover:border-blue-400/30 transition"
               >
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <CheckCircle className="w-5 h-5 text-white" />
+                <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0">
+                  <CheckCircle className="w-5 h-5 text-blue-400" />
                 </div>
-                <p className="text-gray-700 dark:text-gray-300">{reason}</p>
+                <p className="text-white/85 text-sm">{reason}</p>
               </div>
             ))}
           </div>
@@ -245,17 +243,17 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-extrabold text-white mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-lg text-white/90 mb-8">
+          <p className="text-lg text-white/85 mb-8">
             Let&apos;s discuss how we can help transform your business
           </p>
           <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-colors"
+            href="/book"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-lg grad text-white font-semibold hover:shadow-purple-500/20 transition-all"
           >
             Book a Consultation
             <ArrowRight className="ml-2 w-5 h-5" />

@@ -1,24 +1,22 @@
-'use client';
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-
-export function CTA() {
+export default function CTA() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-          Ready to Transform Your Business?
+    <section className="mt-32 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto rounded-2xl py-10 px-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 shadow-2xl text-center">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+          Let's build something great
         </h2>
-        <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-          Join hundreds of successful companies that have partnered with us for their digital transformation journey.
+        <p className="text-sm sm:text-base text-white/90 mb-6 max-w-2xl mx-auto">
+          We'd love to hear about your project. Let's explore how we can help.
         </p>
         <Link
-          href="/contact"
-          className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+          href="/book"
+          className="inline-flex items-center justify-center px-6 py-2 rounded-lg bg-white text-blue-600 font-semibold text-sm hover:bg-gray-100 transition-colors"
         >
-          Schedule a Consultation
-          <ArrowRight className="ml-2 w-5 h-5" />
+          Start Your Project
+          <ArrowRight className="ml-2 w-4 h-4" />
         </Link>
       </div>
     </section>

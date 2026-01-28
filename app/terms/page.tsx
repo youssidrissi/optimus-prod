@@ -2,142 +2,55 @@
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 opacity-30"></div>
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-gray-900">
+      <section className="relative pt-20 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="inline-block mb-6 px-4 py-2 bg-blue-500/20 rounded-full">
+            <span className="text-blue-300 text-sm font-semibold">Legal</span>
+          </div>
+          <h1 className="text-5xl sm:text-6xl font-bold mb-6 gradient-text">
             Terms of Service
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
-            Please read these terms carefully
+          <p className="text-base text-white/70">
+            Everything you need to know
           </p>
         </div>
       </section>
 
       {/* Content */}
-      <div className="px-4 sm:px-6 lg:px-8 py-12 bg-white dark:bg-gray-900/50">
-        <div className="max-w-4xl mx-auto text-gray-700 dark:text-gray-400 space-y-8">
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              1. Terms
-            </h2>
-            <p>
-              By accessing this website, you are agreeing to be bound by these website Terms and
-              Conditions of Use, all applicable laws and regulations, and agree that you are
-              responsible for compliance with any applicable local laws. If you do not agree with any
-              of these terms, you are prohibited from using or accessing this site.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              2. Use License
-            </h2>
-            <p>
-              Permission is granted to temporarily download one copy of the materials (information or
-              software) on Optimus Consulting&#39;s website for personal, non-commercial transitory
-              viewing only. This is the grant of a license, not a transfer of title, and under this
-              license you may not:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Modifying or copying the materials</li>
-              <li>Using the materials for any commercial purpose or for any public display</li>
-              <li>Attempting to decompile or reverse engineer any software contained on the website</li>
-              <li>Removing any copyright or other proprietary notations from the materials</li>
-              <li>Transferring the materials to another person or &#34;mirroring&#34; the materials on any
-                other server
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              3. Disclaimer
-            </h2>
-            <p>
-              The materials on Optimus Consulting&#39;s website are provided on an &#39;as is&#39; basis. Optimus
-              Consulting makes no warranties, expressed or implied, and hereby disclaims and negates all
-              other warranties including, without limitation, implied warranties or conditions of
-              merchantability, fitness for a particular purpose, or non-infringement of intellectual
-              property or other violation of rights.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              4. Limitations
-            </h2>
-            <p>
-              In no event shall Optimus Consulting or its suppliers be liable for any damages
-              (including, without limitation, damages for loss of data or profit, or due to business
-              interruption) arising out of the use or inability to use the materials on Optimus
-              Consulting&#39;s website, even if Optimus Consulting or an authorized representative has
-              been notified orally or in writing of the possibility of such damage.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              5. Accuracy of Materials
-            </h2>
-            <p>
-              The materials appearing on Optimus Consulting&#39;s website could include technical,
-              typographical, or photographic errors. Optimus Consulting does not warrant that any of
-              the materials on the website are accurate, complete, or current. Optimus Consulting may
-              make changes to the materials contained on its website at any time without notice.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              6. Links
-            </h2>
-            <p>
-              Optimus Consulting has not reviewed all of the sites linked to its website and is not
-              responsible for the contents of any such linked site. The inclusion of any link does not
-              imply endorsement by Optimus Consulting of the site. Use of any such linked website is
-              at the user&#39;s own risk.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              7. Modifications
-            </h2>
-            <p>
-              Optimus Consulting may revise these terms of service for its website at any time without
-              notice. By using this website, you are agreeing to be bound by the then current version
-              of these terms of service.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              8. Governing Law
-            </h2>
-            <p>
-              These terms and conditions are governed by and construed in accordance with the laws of
-              California, United States, and you irrevocably submit to the exclusive jurisdiction of
-              the courts in that location.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              9. Contact Information
-            </h2>
-            <p>
-              If you have any questions about these Terms of Service, please contact us at:
-              <br />
-              Email: contact@optimusconsulting.com
-              <br />
-              Phone: +1 (555) 123-4567
-            </p>
-          </section>
+      <div className="px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-4xl mx-auto text-white/80 space-y-8 text-base leading-relaxed">
+          <p>
+            By using this website, you agree to be bound by these terms. If you don't agree with them, please don't use our site.
+          </p>
+          <p>
+            All content on this site—including text, code, and designs—is owned by Optimus Consulting or our partners. You're welcome to view and read it, but you can't copy, modify, or distribute it without permission.
+          </p>
+          <p>
+            We make no warranties about this website or its content. It's provided "as is." We're not responsible for any damages from your use of the site or materials on it.
+          </p>
+          <p>
+            We may update these terms anytime. Your continued use of the site means you accept the updates.
+          </p>
+          <p>
+            Questions? Contact us at contact@optimusconsulting.com.
+          </p>
         </div>
       </div>
+
+      {/* CTA Section */}
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-extrabold text-white mb-4">Questions About Our Terms?</h2>
+          <p className="text-white/85 mb-8 max-w-2xl mx-auto">
+            Contact us if you have any concerns or questions about our terms of service
+          </p>
+          <a href="mailto:contact@optimusconsulting.com" className="inline-flex items-center gap-2 rounded-xl grad px-6 py-3 font-semibold text-white shadow-lg shadow-purple-500/10 hover:shadow-purple-500/20 transition">
+            Get in Touch
+          </a>
+        </div>
+      </section>
     </div>
   );
 }

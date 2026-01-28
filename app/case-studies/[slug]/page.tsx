@@ -281,14 +281,13 @@ export default function CaseStudyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 opacity-30"></div>
+    <div className="min-h-screen">
       {/* Back Link */}
       <div className="relative pt-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <Link
             href="/case-studies"
-            className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium"
+            className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-medium"
           >
             <ArrowLeft className="mr-2 w-4 h-4" />
             Back to Case Studies
@@ -297,16 +296,16 @@ export default function CaseStudyPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-gray-900">
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="mb-6">
-            <span className="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-sm font-medium mb-4">
               {caseStudy.category}
             </span>
-            <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-6xl font-bold mb-6 gradient-text">
               {caseStudy.title}
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-white/70">
               {caseStudy.description}
             </p>
           </div>
@@ -329,12 +328,12 @@ export default function CaseStudyPage() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                className="p-4 glass rounded-lg"
               >
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">
+                <p className="text-sm font-medium text-white/70 mb-1">
                   {item.label}
                 </p>
-                <p className="text-lg font-semibold text-black dark:text-white">
+                <p className="text-lg font-semibold text-white">
                   {item.value}
                 </p>
               </div>
@@ -344,21 +343,21 @@ export default function CaseStudyPage() {
       </section>
 
       {/* Key Metrics */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50 transition-colors duration-300">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-white mb-8">
             Key Results
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {caseStudy.keyMetrics.map((metric) => (
               <div
                 key={metric.label}
-                className="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                className="p-6 glass rounded-lg"
               >
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
+                <p className="text-sm font-medium text-white/70 mb-2">
                   {metric.label}
                 </p>
-                <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <p className="text-4xl font-bold gradient-text">
                   {metric.value}
                 </p>
               </div>
@@ -372,18 +371,18 @@ export default function CaseStudyPage() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold text-black dark:text-white mb-4">
+              <h2 className="text-2xl font-bold text-white mb-4">
                 Challenge
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 {caseStudy.challenge}
               </p>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-black dark:text-white mb-4">
+              <h2 className="text-2xl font-bold text-white mb-4">
                 Solution
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 {caseStudy.solution}
               </p>
             </div>
@@ -392,19 +391,19 @@ export default function CaseStudyPage() {
       </section>
 
       {/* Results List */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50 transition-colors duration-300">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-white mb-8">
             Results
           </h2>
           <div className="space-y-4">
             {caseStudy.results.map((result, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                className="flex items-start gap-4 p-4 glass rounded-lg"
               >
-                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                <p className="text-gray-700 dark:text-gray-300">{result}</p>
+                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <p className="text-white/85">{result}</p>
               </div>
             ))}
           </div>
@@ -414,14 +413,14 @@ export default function CaseStudyPage() {
       {/* Technologies */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-white mb-8">
             Technologies Used
           </h2>
           <div className="flex flex-wrap gap-3">
             {caseStudy.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg font-medium text-sm"
+                className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-lg font-medium text-sm"
               >
                 {tech}
               </span>
@@ -431,17 +430,17 @@ export default function CaseStudyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-extrabold text-white mb-4">
             Ready to Start Your Project?
           </h2>
-          <p className="text-blue-100 text-lg mb-8">
+          <p className="text-white/85 text-lg mb-8">
             Let&apos;s discuss how we can help transform your business.
           </p>
           <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-colors"
+            href="/book"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-lg grad text-white font-semibold hover:shadow-purple-500/20 transition-all"
           >
             Get in Touch
             <ArrowRight className="ml-2 w-5 h-5" />

@@ -1,26 +1,463 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base */
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+html.dark body {
+  background: #050812;
+  color: #fff;
+}
+
+/* Light mode text color overrides */
+html:not(.dark) .text-white {
+  @apply text-gray-900;
+}
+
+html:not(.dark) .text-white\/90 {
+  color: rgba(17, 24, 39, 0.9);
+}
+
+html:not(.dark) .text-white\/80 {
+  color: rgba(17, 24, 39, 0.8);
+}
+
+html:not(.dark) .text-white\/75 {
+  color: rgba(17, 24, 39, 0.75);
+}
+
+html:not(.dark) .text-white\/70 {
+  color: rgba(17, 24, 39, 0.7);
+}
+
+html:not(.dark) .text-white\/65 {
+  color: rgba(17, 24, 39, 0.65);
+}
+
+html:not(.dark) .text-white\/60 {
+  color: rgba(17, 24, 39, 0.6);
+}
+
+html:not(.dark) .text-white\/55 {
+  color: rgba(17, 24, 39, 0.55);
+}
+
+html:not(.dark) .text-white\/50 {
+  color: rgba(17, 24, 39, 0.5);
+}
+
+html:not(.dark) .text-white\/45 {
+  color: rgba(17, 24, 39, 0.45);
+}
+
+/* Light mode background overrides */
+html:not(.dark) .bg-white\/\[0\.05\] {
+  background-color: rgba(17, 24, 39, 0.05);
+}
+
+html:not(.dark) .bg-white\/\[0\.09\] {
+  background-color: rgba(17, 24, 39, 0.09);
+}
+
+html:not(.dark) .bg-blue-500\/20 {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+html:not(.dark) .bg-blue-500\/5 {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Light mode border overrides */
+html:not(.dark) .border-white\/10 {
+  border-color: rgba(17, 24, 39, 0.1);
+}
+
+html:not(.dark) .border-white\/15 {
+  border-color: rgba(17, 24, 39, 0.15);
+}
+
+/* Light mode footer styling - more specific */
+html:not(.dark) footer {
+  background-color: #e5e7eb !important;
+}
+
+html:not(.dark) footer div {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) footer p {
+  color: #6b7280 !important;
+}
+
+html:not(.dark) footer h4 {
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+
+html:not(.dark) footer a {
+  color: #4b5563 !important;
+}
+
+html:not(.dark) footer a:hover {
+  color: #111827 !important;
+}
+
+html:not(.dark) footer .text-white {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) footer .text-white\/90 {
+  color: rgba(17, 24, 39, 0.9) !important;
+}
+
+html:not(.dark) footer .text-white\/70 {
+  color: rgba(17, 24, 39, 0.7) !important;
+}
+
+html:not(.dark) footer .text-white\/60 {
+  color: rgba(17, 24, 39, 0.6) !important;
+}
+
+html:not(.dark) footer .text-white\/55 {
+  color: rgba(17, 24, 39, 0.55) !important;
+}
+
+html:not(.dark) footer .bg-blue-500\/5 {
+  background-color: #e5e7eb !important;
+}
+
+html:not(.dark) footer .border-white\/10 {
+  border-color: rgba(17, 24, 39, 0.1) !important;
+}
+
+html:not(.dark) footer .text-xs {
+  color: rgba(17, 24, 39, 0.55) !important;
+}
+
+/* Light mode CTA section styling */
+html:not(.dark) section .text-white {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) section .text-white\/90 {
+  color: rgba(17, 24, 39, 0.95) !important;
+}
+
+html:not(.dark) section h2 {
+  color: #111827 !important;
+}
+
+html:not(.dark) section p {
+  color: #374151 !important;
+}
+
+/* Light mode content text sections - encased with background */
+html:not(.dark) section .space-y-8,
+html:not(.dark) section .space-y-6 {
+  background-color: #f3e8ff !important;
+  border-radius: 1.5rem !important;
+  padding: 2rem !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+}
+
+/* Content sections container styling - match home page */
+/* Content section containers - enclosure styling */
+section:has(.space-y-8) {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  margin: 2rem auto;
+  max-width: 50rem;
+}
+
+html.dark section:has(.space-y-8) {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html:not(.dark) section:has(.space-y-8) {
+  background-color: #f3e8ff !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+}
+
+/* Inline enclosure containers in paragraphs */
+div[class*="bg-white/5"][class*="border-white/10"] {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html:not(.dark) div[class*="bg-white/5"][class*="border-white/10"] {
+  background-color: #f3f4f6 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) div[class*="bg-white/5"][class*="border-white/10"] p {
+  color: #1f2937 !important;
+}
+
+/* ===== helpers WITHOUT @apply (Tailwind v4 safe) ===== */
+
+.glass {
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(20px);
+}
+
+html.dark .glass {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.035);
+  backdrop-filter: blur(20px);
+}
+
+html.dark .card {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.soft-shadow {
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.15),
+    0 12px 28px rgba(0, 0, 0, 0.10);
+}
+
+html.dark .soft-shadow {
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.55),
+    0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.grad {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #d946ef);
+}
+
+html:not(.dark) .grad {
+  background: linear-gradient(90deg, #6d28d9, #d946ef, #f472b6) !important;
+}
+
+html:not(.dark) .grad {
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #ec4899) !important;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #d946ef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html:not(.dark) .gradient-text {
+  background: linear-gradient(90deg, #7c3aed, #d946ef, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-glow {
+  background:
+    radial-gradient(900px 500px at 50% -120px, rgba(59,130,246,0.15), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(168,85,247,0.10), transparent 60%),
+    radial-gradient(900px 500px at 20% 45%, rgba(236,72,153,0.05), transparent 60%);
+}
+
+html.dark .page-glow {
+  background:
+    radial-gradient(900px 500px at 50% -120px, rgba(59,130,246,0.25), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(168,85,247,0.18), transparent 60%),
+    radial-gradient(900px 500px at 20% 45%, rgba(236,72,153,0.10), transparent 60%);
+}
+
+/* Book page light mode fixes */
+html:not(.dark) h1 {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) .text-white\/70 {
+  color: #4b5563 !important;
+}
+
+html:not(.dark) .text-white\/85 {
+  color: #374151 !important;
+}
+
+html:not(.dark) .text-white\/60 {
+  color: #6b7280 !important;
+}
+
+html:not(.dark) .text-white\/35 {
+  color: #9ca3af !important;
+}
+
+html:not(.dark) .text-white {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) svg {
+  color: inherit;
+}
+
+html:not(.dark) .bg-white\/\[0\.04\] {
+  background-color: #f3f4f6 !important;
+}
+
+html:not(.dark) .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) .bg-emerald-500 {
+  background-color: #10b981 !important;
+}
+
+html:not(.dark) .bg-emerald-500.border-emerald-400 {
+  border-color: #6ee7b7 !important;
+}
+
+html:not(.dark) .bg-violet-500 {
+  background-color: #8b5cf6 !important;
+}
+
+html:not(.dark) .bg-violet-500.border-violet-400 {
+  border-color: #c4b5fd !important;
+}
+
+/* Progress line visibility in light mode */
+html:not(.dark) [style*="background: linear-gradient"] {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #d946ef) !important;
+}
+
+html:not(.dark) div[style*="width:"] {
+  background-color: #8b5cf6 !important;
+}
+
+/* Input and placeholder text in light mode */
+html:not(.dark) input::placeholder {
+  color: #9ca3af !important;
+}
+
+html:not(.dark) textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+html:not(.dark) input {
+  color: #1f2937 !important;
+  background-color: #f9fafb !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) textarea {
+  color: #1f2937 !important;
+  background-color: #f9fafb !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) select {
+  color: #1f2937 !important;
+  background-color: #f9fafb !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) input:hover,
+html:not(.dark) textarea:hover,
+html:not(.dark) select:hover {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+html:not(.dark) input:focus,
+html:not(.dark) textarea:focus,
+html:not(.dark) select:focus {
+  border-color: #8b5cf6 !important;
+  color: #1f2937 !important;
+}
+
+/* Progress line visibility in light mode */
+html:not(.dark) .bg-white\/10 {
+  background-color: #e5e7eb !important;
+}
+
+/* Hero and main content visibility in light mode */
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3 {
+  color: #111827 !important;
+}
+
+html:not(.dark) h1.gradient-text,
+html:not(.dark) h2.gradient-text,
+html:not(.dark) h3.gradient-text,
+html:not(.dark) span.gradient-text {
+  color: transparent !important;
+}
+
+html:not(.dark) p {
+  color: #374151 !important;
+}
+
+/* Section alternating backgrounds in light mode */
+html:not(.dark) section:nth-child(odd) {
+  background-color: #fafaf9;
+}
+
+html:not(.dark) section:nth-child(even) {
+  background-color: #fbfbfa;
+}
+
+/* Services dropdown in light mode */
+html:not(.dark) .bg-\[\#070B14\]\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) .text-violet-400 {
+  color: #7c3aed !important;
+}
+
+html:not(.dark) .bg-\[\#070B14\]\/95 a {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) .bg-\[\#070B14\]\/95 .text-white\/70 {
+  color: #6b7280 !important;
+}
+
+html:not(.dark) .shadow-black\/40 {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Success screen in light mode */
+html:not(.dark) .bg-emerald-500 {
+  background-color: #10b981 !important;
+}
+
+html:not(.dark) h2 {
+  color: #111827 !important;
+}
+
+/* Success screen card in light mode */
+html:not(.dark) .card {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) .rounded-2xl.p-8.md\:p-10 {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) .max-w-4xl {
+  color: #1f2937 !important;
+}
+
