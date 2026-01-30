@@ -14,6 +14,7 @@ import {
   ArrowRight,
   Loader,
 } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 type StepId = "basic" | "type" | "desc" | "budget" | "timeline" | "extra" | "success";
 
@@ -51,16 +52,18 @@ type FormState = {
 const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
 
 export default function BookConsultationWizard() {
+  const { t } = useTranslation();
+
   const steps = useMemo(
     () => [
-      { id: "basic" as const, label: "Basic Info", Icon: User },
-      { id: "type" as const, label: "Project Type", Icon: Briefcase },
-      { id: "desc" as const, label: "Description", Icon: FileText },
-      { id: "budget" as const, label: "Budget", Icon: DollarSign },
-      { id: "timeline" as const, label: "Timeline", Icon: Calendar },
-      { id: "extra" as const, label: "Additional Details", Icon: MessageSquare },
+      { id: "basic" as const, labelKey: "booking.basicInfo", Icon: User },
+      { id: "type" as const, labelKey: "booking.projectType", Icon: Briefcase },
+      { id: "desc" as const, labelKey: "booking.projectDescription", Icon: FileText },
+      { id: "budget" as const, labelKey: "booking.budget", Icon: DollarSign },
+      { id: "timeline" as const, labelKey: "booking.timeline", Icon: Calendar },
+      { id: "extra" as const, labelKey: "booking.additionalDetails", Icon: MessageSquare },
       // final screen
-      { id: "success" as const, label: "Completed", Icon: MessageSquare },
+      { id: "success" as const, labelKey: "booking.completed", Icon: MessageSquare },
     ],
     []
   );
@@ -101,7 +104,7 @@ export default function BookConsultationWizard() {
       {/* Title */}
       <div className="text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold text-violet-400">
-          Book a Consultation
+          {t('booking.title')}
         </h1>
         <p className="mt-3 text-white/70">
           Let&apos;s discuss your project and find the perfect solution
@@ -154,7 +157,7 @@ export default function BookConsultationWizard() {
                     done || active ? "text-white/85" : "text-white/35",
                   ].join(" ")}
                 >
-                  {s.label}
+                  {t(s.labelKey)}
                 </div>
               </div>
             );
@@ -172,7 +175,7 @@ export default function BookConsultationWizard() {
           {!isSuccess ? (
             <>
               <h2 className="text-3xl font-extrabold text-white">
-                {stepTitle(step.id)}
+                {stepTitle(step.id, t)}
               </h2>
 
               <div className="mt-8">
@@ -180,6 +183,7 @@ export default function BookConsultationWizard() {
                   <BasicInfo
                     value={data}
                     onChange={(patch) => setData((d) => ({ ...d, ...patch }))}
+                    t={t}
                   />
                 )}
 
@@ -187,6 +191,7 @@ export default function BookConsultationWizard() {
                   <ProjectType
                     value={data.projectType}
                     onChange={(v) => setData((d) => ({ ...d, projectType: v }))}
+                    t={t}
                   />
                 )}
 
@@ -194,6 +199,7 @@ export default function BookConsultationWizard() {
                   <Description
                     value={data.description}
                     onChange={(v) => setData((d) => ({ ...d, description: v }))}
+                    t={t}
                   />
                 )}
 
@@ -201,6 +207,7 @@ export default function BookConsultationWizard() {
                   <Budget
                     value={data.budget}
                     onChange={(v) => setData((d) => ({ ...d, budget: v }))}
+                    t={t}
                   />
                 )}
 
@@ -208,6 +215,7 @@ export default function BookConsultationWizard() {
                   <Timeline
                     value={data.timeline}
                     onChange={(v) => setData((d) => ({ ...d, timeline: v }))}
+                    t={t}
                   />
                 )}
 
@@ -215,6 +223,7 @@ export default function BookConsultationWizard() {
                   <Additional
                     value={data.additional}
                     onChange={(v) => setData((d) => ({ ...d, additional: v }))}
+                    t={t}
                   />
                 )}
               </div>
@@ -290,22 +299,22 @@ export default function BookConsultationWizard() {
 }
 
 /* ---------- Step Titles ---------- */
-function stepTitle(id: StepId) {
+function stepTitle(id: StepId, t: (key: string) => string) {
   switch (id) {
     case "basic":
-      return "Basic Information";
+      return t('booking.basicInfo');
     case "type":
-      return "Project Type";
+      return t('booking.projectType');
     case "desc":
-      return "Project Description";
+      return t('booking.projectDescription');
     case "budget":
-      return "Estimated Project Budget";
+      return t('booking.budget');
     case "timeline":
-      return "Project Timeline";
+      return t('booking.timeline');
     case "extra":
-      return "Additional Details";
+      return t('booking.additionalDetails');
     case "success":
-      return "Thank You";
+      return t('booking.thankYou');
   }
 }
 
@@ -360,39 +369,41 @@ function Textarea(props: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
 function BasicInfo({
   value,
   onChange,
+  t,
 }: {
   value: FormState;
   onChange: (patch: Partial<FormState>) => void;
+  t: (key: string) => string;
 }) {
   return (
     <div className="grid gap-6">
-      <Field label="Full Name" required>
+      <Field label={t('booking.fullName')} required>
         <Input
-          placeholder="John Doe"
+          placeholder={t('booking.fullNamePlaceholder')}
           value={value.fullName}
           onChange={(e) => onChange({ fullName: e.target.value })}
         />
       </Field>
 
-      <Field label="Email Address" required>
+      <Field label={t('booking.email')} required>
         <Input
-          placeholder="john@company.com"
+          placeholder={t('booking.emailPlaceholder')}
           value={value.email}
           onChange={(e) => onChange({ email: e.target.value })}
         />
       </Field>
 
-      <Field label="Company Name">
+      <Field label={t('booking.company')}>
         <Input
-          placeholder="Your Company Inc."
+          placeholder={t('booking.companyPlaceholder')}
           value={value.company}
           onChange={(e) => onChange({ company: e.target.value })}
         />
       </Field>
 
-      <Field label="Phone Number">
+      <Field label={t('booking.phone')}>
         <Input
-          placeholder="+1 (555) 123-4567"
+          placeholder={t('booking.phonePlaceholder')}
           value={value.phone}
           onChange={(e) => onChange({ phone: e.target.value })}
         />
@@ -404,27 +415,29 @@ function BasicInfo({
 function ProjectType({
   value,
   onChange,
+  t,
 }: {
   value: FormState["projectType"];
   onChange: (v: FormState["projectType"]) => void;
+  t: (key: string) => string;
 }) {
-  const options: FormState["projectType"][] = [
-    "Web Development",
-    "Mobile App",
-    "AI Solution",
-    "SaaS Platform",
-    "Marketing",
-    "Consulting",
+  const options: Array<{ key: string; value: FormState["projectType"] }> = [
+    { key: 'booking.webDevelopment', value: "Web Development" },
+    { key: 'booking.mobileApp', value: "Mobile App" },
+    { key: 'booking.aiSolution', value: "AI Solution" },
+    { key: 'booking.saasPlatform', value: "SaaS Platform" },
+    { key: 'booking.marketing', value: "Marketing" },
+    { key: 'booking.consulting', value: "Consulting" },
   ];
 
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {options.map((opt) => {
-        const selected = value === opt;
+        const selected = value === opt.value;
         return (
           <button
-            key={opt}
-            onClick={() => onChange(opt)}
+            key={opt.value}
+            onClick={() => onChange(opt.value)}
             className={[
               "rounded-xl border px-6 py-4 text-center font-semibold transition",
               selected
@@ -433,7 +446,7 @@ function ProjectType({
             ].join(" ")}
             type="button"
           >
-            {opt}
+            {t(opt.key)}
           </button>
         );
       })}
@@ -444,17 +457,19 @@ function ProjectType({
 function Description({
   value,
   onChange,
+  t,
 }: {
   value: string;
   onChange: (v: string) => void;
+  t: (key: string) => string;
 }) {
   return (
     <div className="grid gap-3">
       <div className="text-sm font-semibold text-white/85">
-        Tell us about your project <span className="text-white/60">*</span>
+        {t('booking.projectDescriptionRequired')}
       </div>
       <Textarea
-        placeholder="Describe your project goals, requirements, and any specific features you have in mind..."
+        placeholder={t('booking.projectDescriptionPlaceholder')}
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
@@ -465,9 +480,11 @@ function Description({
 function Budget({
   value,
   onChange,
+  t,
 }: {
   value: number;
   onChange: (v: number) => void;
+  t: (key: string) => string;
 }) {
   const min = 5000;
   const max = 1_000_000;
@@ -483,7 +500,7 @@ function Budget({
   return (
     <div className="space-y-6">
       <div className="flex items-end justify-between">
-        <div className="text-sm font-semibold text-white/85">Budget Range</div>
+        <div className="text-sm font-semibold text-white/85">{t('booking.budgetLabel')}</div>
         <div className="text-2xl font-extrabold text-violet-400">{pretty}</div>
       </div>
 
@@ -502,7 +519,7 @@ function Budget({
         </div>
       </div>
 
-      <div className="text-sm font-semibold text-white/75">Quick Select:</div>
+      <div className="text-sm font-semibold text-white/75">{t('booking.budgetPlaceholder')}</div>
 
       <div className="grid gap-3 sm:grid-cols-4">
         {quick.map((q) => {
@@ -535,27 +552,29 @@ function Budget({
 function Timeline({
   value,
   onChange,
+  t,
 }: {
   value: FormState["timeline"];
   onChange: (v: FormState["timeline"]) => void;
+  t: (key: string) => string;
 }) {
-  const options: FormState["timeline"][] = [
-    "ASAP",
-    "1-3 months",
-    "3-6 months",
-    "6-12 months",
-    "12+ months",
-    "Flexible",
+  const options: Array<{ key: string; value: FormState["timeline"] }> = [
+    { key: 'booking.asap', value: "ASAP" },
+    { key: 'booking.months1to3', value: "1-3 months" },
+    { key: 'booking.months3to6', value: "3-6 months" },
+    { key: 'booking.months6to12', value: "6-12 months" },
+    { key: 'booking.months12Plus', value: "12+ months" },
+    { key: 'booking.flexible', value: "Flexible" },
   ];
 
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {options.map((opt) => {
-        const selected = value === opt;
+        const selected = value === opt.value;
         return (
           <button
-            key={opt}
-            onClick={() => onChange(opt)}
+            key={opt.value}
+            onClick={() => onChange(opt.value)}
             className={[
               "rounded-xl border px-6 py-4 text-center font-semibold transition",
               selected
@@ -564,7 +583,7 @@ function Timeline({
             ].join(" ")}
             type="button"
           >
-            {opt}
+            {t(opt.key)}
           </button>
         );
       })}

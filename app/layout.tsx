@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Optimus Consulting",
@@ -12,12 +13,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <body className="min-h-screen bg-[#050812] text-white antialiased">
-        {/* Background glow */}
-        <div className="pointer-events-none fixed inset-0 -z-10 page-glow" />
+        <LanguageProvider>
+          {/* Background glow */}
+          <div className="pointer-events-none fixed inset-0 -z-10 page-glow" />
 
-        <Navbar />
-        <main className="min-h-[70vh]">{children}</main>
-        <Footer />
+          <Navbar />
+          <main className="min-h-[70vh]">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

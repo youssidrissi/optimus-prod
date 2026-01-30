@@ -2,66 +2,69 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface Service {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descKey: string;
   icon: string;
 }
 
 const services: Service[] = [
   {
     id: 'web-development',
-    title: 'Web Development',
-    description: 'Build scalable, high-performance web applications with modern technologies.',
+    titleKey: 'servicesGrid.webDevelopment',
+    descKey: 'servicesGrid.webDevelopmentDesc',
     icon: '🌐',
   },
   {
     id: 'app-development',
-    title: 'App Development',
-    description: 'Create native and cross-platform mobile applications for iOS and Android.',
+    titleKey: 'servicesGrid.appDevelopment',
+    descKey: 'servicesGrid.appDevelopmentDesc',
     icon: '📱',
   },
   {
     id: 'ai-solutions',
-    title: 'AI Solutions',
-    description: 'Implement machine learning and AI-powered solutions to transform your business.',
+    titleKey: 'servicesGrid.aiSolutions',
+    descKey: 'servicesGrid.aiSolutionsDesc',
     icon: '🤖',
   },
   {
     id: 'saas-development',
-    title: 'SaaS Development',
-    description: 'Build and scale subscription-based software products with enterprise features.',
+    titleKey: 'servicesGrid.saasDevelopment',
+    descKey: 'servicesGrid.saasDevelopmentDesc',
     icon: '☁️',
   },
   {
     id: 'digital-marketing',
-    title: 'Digital Marketing',
-    description: 'Drive growth with data-driven digital marketing strategies and campaigns.',
+    titleKey: 'servicesGrid.digitalMarketing',
+    descKey: 'servicesGrid.digitalMarketingDesc',
     icon: '📊',
   },
   {
     id: 'consulting',
-    title: 'Tech Consulting',
-    description: 'Get expert guidance on digital transformation and technology strategy.',
+    titleKey: 'servicesGrid.consulting',
+    descKey: 'servicesGrid.consultingDesc',
     icon: '💡',
   },
 ];
 
 export function ServicesPreview() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-sm font-medium mb-4">
-            Our Services
+            {t('servicesGrid.title')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            What We Offer
+            {t('hero.cta')}
           </h2>
           <p className="text-base text-white/70 max-w-2xl mx-auto">
-            From strategy to deployment—we've got the expertise to handle it.
+            {t('hero.description')}
           </p>
         </div>
 
@@ -71,13 +74,13 @@ export function ServicesPreview() {
               <div className="group h-full bg-white/[0.05] rounded-xl border border-white/10 hover:border-blue-400/30 transition-all duration-300 p-6">
                 <div className="text-3xl mb-4">{service.icon}</div>
                 <h3 className="text-lg font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="text-white/70 text-sm mb-6">
-                  {service.description}
+                  {t(service.descKey)}
                 </p>
                 <div className="flex items-center text-blue-400 font-semibold text-sm group-hover:translate-x-2 transition-transform">
-                  Learn More
+                  {t('servicesGrid.learnMore')}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </div>
               </div>
@@ -90,7 +93,7 @@ export function ServicesPreview() {
             href="/services"
             className="inline-flex items-center justify-center px-8 py-3 rounded-xl grad text-white font-semibold shadow-lg shadow-purple-500/10 hover:shadow-purple-500/20 transition text-sm"
           >
-            See All Services
+            {t('caseStudies.ctaButton')}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
         </div>

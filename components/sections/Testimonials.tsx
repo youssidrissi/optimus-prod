@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslation } from '@/hooks/useTranslation';
+
 interface Testimonial {
   id: number;
   name: string;
@@ -40,18 +42,20 @@ const testimonials: Testimonial[] = [
 ];
 
 export function Testimonials() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-sm font-medium mb-4">
-            Client Stories
+            {t('testimonials.badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            What Our Clients Say
+            {t('testimonials.title')}
           </h2>
           <p className="text-base text-white/70 max-w-2xl mx-auto">
-            Real results from real partners.
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
