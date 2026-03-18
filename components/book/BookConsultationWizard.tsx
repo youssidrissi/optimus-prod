@@ -594,17 +594,19 @@ function Timeline({
 function Additional({
   value,
   onChange,
+  t,
 }: {
   value: string;
   onChange: (v: string) => void;
+  t: (key: string) => string;
 }) {
   return (
     <div className="grid gap-3">
       <div className="text-sm font-semibold text-white/85">
-        Anything else we should know?
+        {t('booking.additionalLabel')}
       </div>
       <Textarea
-        placeholder="Share any extra context, constraints, or links (optional)..."
+        placeholder={t('booking.additionalPlaceholder')}
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
